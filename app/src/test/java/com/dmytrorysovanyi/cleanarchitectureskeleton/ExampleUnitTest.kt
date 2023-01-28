@@ -1,4 +1,4 @@
-package com.example.myarchitectureproject
+package com.dmytrorysovanyi.cleanarchitectureskeleton
 
 import org.junit.Test
 

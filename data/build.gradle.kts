@@ -1,7 +1,8 @@
+@file:Suppress("UnstableApiUsage") // TODO
+
 plugins {
   id ("com.android.library")
   id ("org.jetbrains.kotlin.android")
-  id ("dagger.hilt.android.plugin")
   id ("kotlin-kapt")
 }
 
@@ -10,7 +11,6 @@ android {
 
   defaultConfig {
     minSdk = libs.versions.minSdk.get().toInt()
-    targetSdk = libs.versions.targetSdk.get().toInt()
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     // consumerProguardFiles = "consumer-rules.pro"
@@ -40,9 +40,12 @@ android {
 
 dependencies {
 
-  // Hilt
-  implementation(libs.hilt.android)
-  kapt(libs.hilt.compiler)
+
+  // Tests
+  testImplementation(libs.junit)
+  androidTestImplementation(libs.junit)
+  androidTestImplementation(libs.androidx.test.ext.junit)
+
 
 //  // Retrofit
 //  implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

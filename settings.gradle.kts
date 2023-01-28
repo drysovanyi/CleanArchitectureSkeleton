@@ -1,4 +1,4 @@
-rootProject.name = "MyArchitectureProject"
+rootProject.name = "CleanArchitectureSkeleton"
 
 include (":app")
 include (":data")

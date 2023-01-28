@@ -1,4 +1,4 @@
-package com.example.myarchitectureproject.ui.theme
+package com.dmytrorysovanyi.cleanarchitectureskeleton.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
