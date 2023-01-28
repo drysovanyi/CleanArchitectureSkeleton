@@ -1,4 +1,4 @@
-@file:Suppress("UnstableApiUsage") // TODO
+@file:Suppress("UnstableApiUsage")
 
 plugins {
   id ("com.android.library")
@@ -40,12 +40,20 @@ android {
 
 dependencies {
 
+  // Retrofit
+  implementation(libs.retrofit)
+  implementation(libs.retrofit.json.converter)
+
+  // Room
+  implementation(libs.androidx.room.runtime)
+  implementation(libs.androidx.room.ktx)
+  kapt(libs.androidx.room.compiler)
 
   // Tests
+  testImplementation(libs.androidx.room.testing)
   testImplementation(libs.junit)
   androidTestImplementation(libs.junit)
   androidTestImplementation(libs.androidx.test.ext.junit)
-
 
 //  // Retrofit
 //  implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

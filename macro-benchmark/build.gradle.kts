@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   id("com.android.test")
   id("org.jetbrains.kotlin.android")
@@ -5,7 +7,7 @@ plugins {
 
 android {
   namespace = "com.example.macro_benchmark"
-  compileSdk = 33
+  compileSdk = libs.versions.compileSdk.get().toInt()
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -17,8 +19,8 @@ android {
   }
 
   defaultConfig {
-    minSdk = 24
-    targetSdk = 33
+    minSdk = libs.versions.minSdk.get().toInt()
+    targetSdk = libs.versions.targetSdk.get().toInt()
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -39,18 +41,15 @@ android {
 }
 
 dependencies {
-  implementation("androidx.test.ext:junit:1.1.5")
-  implementation("androidx.test.espresso:espresso-core:3.5.1")
-  implementation("androidx.test.uiautomator:uiautomator:2.2.0")
 
-
-  implementation("androidx.profileinstaller:profileinstaller:1.3.0-alpha03") // TODO
+  // Benchmark
   implementation(libs.androidx.benchmark.macro.junit4)
+  implementation(libs.androidx.profile.installer)
 
-}
+  // Tests
+  implementation(libs.junit)
+  implementation(libs.androidx.test.ext.junit)
+  implementation(libs.androidx.test.espresso.core)
+  implementation(libs.androidx.test.uiautomator)
 
-androidComponents {
-  beforeVariants(selector().all()) {
-    it.enabled = it.buildType == "benchmark"
-  }
 }

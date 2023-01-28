@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   id("com.android.library")
   id("androidx.benchmark")
@@ -6,7 +8,7 @@ plugins {
 
 android {
   namespace = "com.example.micro_benchmark"
-  compileSdk = 33
+  compileSdk = libs.versions.compileSdk.get().toInt()
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,8 +20,7 @@ android {
   }
 
   defaultConfig {
-    minSdk = 24
-    targetSdk = 33
+    minSdk = libs.versions.minSdk.get().toInt()
 
     testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
   }
@@ -39,14 +40,12 @@ android {
 }
 
 dependencies {
-  androidTestImplementation("androidx.test:runner:1.5.2")
-  androidTestImplementation("androidx.test.ext:junit:1.1.5")
-  androidTestImplementation("junit:junit:4.13.2")
 
+  // Benchmark
   androidTestImplementation(libs.androidx.benchmark.micro.junit4)
-  // Add your dependencies here. Note that you cannot benchmark code
-  // in an app module this way - you will need to move any code you
-  // want to benchmark to a library module:
-  // https://developer.android.com/studio/projects/android-library#Convert
 
+  // Tests
+  androidTestImplementation(libs.junit)
+  androidTestImplementation(libs.androidx.test.ext.junit)
+  androidTestImplementation(libs.androidx.test.uiautomator)
 }
