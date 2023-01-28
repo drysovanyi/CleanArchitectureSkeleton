@@ -18,3 +18,5 @@ dependencyResolutionManagement {
   }
 }
 
+include(":macro-benchmark")
+include(":micro-benchmark")
