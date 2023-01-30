@@ -4,7 +4,7 @@
     package="com.dmytrorysovanyi.cleanarchitectureskeleton">
 
   <application
-      android:name="com.dmytrorysovanyi.cleanarchitectureskeleton.MyApp"
+      android:name="com.dmytrorysovanyi.cleanarchitectureskeleton.app.MyApp"
       android:allowBackup="true"
       android:dataExtractionRules="@xml/data_extraction_rules"
       android:fullBackupContent="@xml/backup_rules"
@@ -18,7 +18,7 @@
         tools:targetApi="29" />
 
     <activity
-        android:name="com.dmytrorysovanyi.cleanarchitectureskeleton.MainActivity"
+        android:name="com.dmytrorysovanyi.cleanarchitectureskeleton.ui.MainActivity"
         android:exported="true"
         android:label="@string/app_name"
         android:theme="@style/Theme.CleanArchitectureSkeleton">

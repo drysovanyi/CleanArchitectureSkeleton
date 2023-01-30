@@ -2,6 +2,9 @@ rootProject.name = "CleanArchitectureSkeleton"
 
 include (":app")
 include (":data")
+include(":macro-benchmark")
+include(":micro-benchmark")
+include(":domain")
 
 pluginManagement {
   repositories {
@@ -17,6 +20,3 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
-
-include(":macro-benchmark")
-include(":micro-benchmark")

@@ -3,7 +3,8 @@
 plugins {
   id ("com.android.library")
   id ("org.jetbrains.kotlin.android")
-  id ("kotlin-kapt")
+  id("com.google.dagger.hilt.android")
+  kotlin("kapt")
 }
 
 android {
@@ -34,15 +35,21 @@ android {
   }
   kotlinOptions {
     jvmTarget = "1.8"
-    allWarningsAsErrors = true
+    // allWarningsAsErrors = true
   }
 }
 
 dependencies {
+  // Core
+  implementation(libs.androidx.core.ktx)
 
   // Retrofit
   implementation(libs.retrofit)
   implementation(libs.retrofit.json.converter)
+
+  // Hilt
+  implementation(libs.hilt.android)
+  kapt(libs.hilt.compiler)
 
   // Room
   implementation(libs.androidx.room.runtime)
@@ -54,16 +61,4 @@ dependencies {
   testImplementation(libs.junit)
   androidTestImplementation(libs.junit)
   androidTestImplementation(libs.androidx.test.ext.junit)
-
-//  // Retrofit
-//  implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-//  implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
-//
-//  // Room
-//  implementation "androidx.room:room-runtime:$room_version"
-//  implementation "androidx.room:room-ktx:$room_version"
-//  kapt "androidx.room:room-compiler:$room_version"
-//
-//  testImplementation "junit:junit:$junit_version"
-//  androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
 }

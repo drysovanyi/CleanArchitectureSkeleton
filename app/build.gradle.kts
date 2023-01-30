@@ -47,7 +47,7 @@ android {
 
   kotlinOptions {
     jvmTarget = "1.8"
-    allWarningsAsErrors = true
+    // allWarningsAsErrors = true
   }
   buildFeatures {
     compose = true

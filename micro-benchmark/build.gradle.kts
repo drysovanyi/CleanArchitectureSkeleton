@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+  // Core
+  implementation(libs.androidx.core.ktx)
+  
   // Benchmark
   androidTestImplementation(libs.androidx.benchmark.micro.junit4)
 

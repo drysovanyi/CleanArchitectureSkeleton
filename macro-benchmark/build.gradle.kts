@@ -16,6 +16,7 @@ android {
 
   kotlinOptions {
     jvmTarget = "1.8"
+    // allWarningsAsErrors = true
   }
 
   defaultConfig {
@@ -41,6 +42,9 @@ android {
 }
 
 dependencies {
+
+  // Core
+  implementation(libs.androidx.core.ktx)
 
   // Benchmark
   implementation(libs.androidx.benchmark.macro.junit4)

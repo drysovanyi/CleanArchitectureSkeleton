@@ -1,4 +1,4 @@
-package com.dmytrorysovanyi.cleanarchitectureskeleton.ui.theme
+package com.dmytrorysovanyi.cleanarchitectureskeleton.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
