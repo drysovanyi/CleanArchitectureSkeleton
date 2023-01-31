@@ -73,6 +73,7 @@ kapt {
 
 dependencies {
   implementation(project(":data"))
+  implementation(project(":domain"))
 
   // Base
   implementation(libs.androidx.appcompat)

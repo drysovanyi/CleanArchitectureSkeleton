@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-  private val viewModel: MainActivityViewModel by viewModels()
+  private val viewModel: HelloWorldViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
       CleanArchitectureSkeletonTheme {
         // A surface container using the 'background' color from the theme
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-          Greeting("Android")
+          Greeting(viewModel.state.text)
         }
       }
     }
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-  Text(text = "Hello $name!")
+  Text(text = name)
 }
 
 @Preview(showBackground = true)
