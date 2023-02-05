@@ -1,5 +1,6 @@
 package com.dmytrorysovanyi.cleanarchitectureskeleton.models
 
 data class HelloWorldState(
-  val text: String
+    val isRefreshing: Boolean,
+    val stringList: List<String>
 )

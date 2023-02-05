@@ -1,22 +1,23 @@
 rootProject.name = "CleanArchitectureSkeleton"
 
-include (":app")
-include (":data")
+include(":app")
+include(":data")
+include(":domain")
+include(":common")
 include(":macro-benchmark")
 include(":micro-benchmark")
-include(":domain")
 
 pluginManagement {
-  repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-  }
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
 }
 dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-  repositories {
-    google()
-    mavenCentral()
-  }
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
 }

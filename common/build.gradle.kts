@@ -18,7 +18,6 @@ dependencies {
     // Hilt. In non android module cannot be added default Hilt android dependency
     implementation(libs.hilt.core)
     kapt(libs.hilt.compiler)
-
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 }

@@ -14,18 +14,17 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ApiModule {
 
-  @Provides
-  @Singleton
-  fun provideApi(): ApiService {
-    val client = OkHttpClient.Builder()
-      .build()
+    @Provides
+    @Singleton
+    fun provideApi(): ApiService {
+        val client = OkHttpClient.Builder()
+            .build()
 
-    return Retrofit.Builder()
-      .addConverterFactory(GsonConverterFactory.create())
-      .baseUrl(ApiService.BASE_URL)
-      .client(client)
-      .build()
-      .create(ApiService::class.java)
-  }
-
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(ApiService.BASE_URL)
+            .client(client)
+            .build()
+            .create(ApiService::class.java)
+    }
 }

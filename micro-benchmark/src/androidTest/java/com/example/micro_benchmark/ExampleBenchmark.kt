@@ -17,13 +17,13 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ExampleBenchmark {
 
-  @get:Rule
-  val benchmarkRule = BenchmarkRule()
+    @get:Rule
+    val benchmarkRule = BenchmarkRule()
 
-  @Test
-  fun log() {
-    benchmarkRule.measureRepeated {
-      Log.d("LogBenchmark", "the cost of writing this log method will be measured")
+    @Test
+    fun log() {
+        benchmarkRule.measureRepeated {
+            Log.d("LogBenchmark", "the cost of writing this log method will be measured")
+        }
     }
-  }
 }
