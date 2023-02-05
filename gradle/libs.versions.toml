@@ -29,7 +29,7 @@ junit = "4.13.2"
 retrofit-version = "2.9.0"
 robolectric = "4.9.2"
 room = "2.5.0"
-ktlint = "0.48.2"
+ktlint = "10.3.0"
 [libraries]
 
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
@@ -75,7 +75,7 @@ androidx-room-testing = { module = "androidx.room:room-runtime", version.ref = "
 androidx-benchmark-macro-junit4 = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "androidx-benchmark-macro-junit4" }
 androidx-benchmark-micro-junit4 = { module = "androidx.benchmark:benchmark-junit4", version.ref = "androidx-benchmark-micro-junit4" }
 
-ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint"}
+ktlint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint"}
 
 junit = { module = "junit:junit", version.ref = "junit" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }

@@ -6,7 +6,7 @@ buildscript {
     dependencies {
         classpath(libs.android.gradlePlugin)
         classpath(libs.kotlin.gradlePlugin)
-        classpath("org.jlleitschuh.gradle:ktlint-gradle:10.3.0")
+        classpath(libs.ktlint)
     }
 }
 
