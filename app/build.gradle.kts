@@ -41,12 +41,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
         // allWarningsAsErrors = true
     }
     buildFeatures {
@@ -55,7 +55,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
-    packagingOptions {
+    packaging {
         // Multiple dependency bring these files in. Exclude them to enable
         // our test APK to build (has no effect on our AARs)
         resources {
@@ -63,6 +63,7 @@ android {
             excludes += "/META-INF/LGPL2.1"
         }
     }
+    namespace = "com.dmytrorysovanyi.cleanarchitectureskeleton"
 }
 
 // Added as suggested in Hilt documentation at https://dagger.dev/hilt/gradle-setup
