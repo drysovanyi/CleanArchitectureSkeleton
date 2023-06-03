@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
                     Greeting(
                         isRefreshing = viewModel.state.isRefreshing,
                         items = viewModel.state.stringList,
-                        onRefresh = { viewModel.refresh() }
+                        onRefresh = { viewModel.refresh() },
                     )
                 }
             }
@@ -51,7 +51,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier, isRefreshing: Boolean, items: List<String>, onRefresh: () -> Unit) {
-
     val pullRefreshState = rememberPullRefreshState(refreshing = isRefreshing, onRefresh = onRefresh)
 
     Scaffold(
@@ -60,9 +59,9 @@ fun Greeting(modifier: Modifier = Modifier, isRefreshing: Boolean, items: List<S
             TopAppBar(
                 title = { Text("Simple text") },
                 actions = {
-                }
+                },
             )
-        }
+        },
     ) { innerPadding ->
         Box(modifier = Modifier.pullRefresh(pullRefreshState)) {
             PullRefreshIndicator(refreshing = isRefreshing, state = pullRefreshState)
@@ -85,7 +84,7 @@ fun DefaultPreview() {
         Greeting(
             isRefreshing = false,
             items = emptyList(),
-            onRefresh = {}
+            onRefresh = {},
         )
     }
 }

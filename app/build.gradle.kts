@@ -1,5 +1,7 @@
 @file:Suppress("UnstableApiUsage")
 
+apply(from = "ktlint.gradle.kts")
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -35,7 +37,7 @@ android {
             signingConfig = signingConfigs.getByName("debug")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -86,7 +88,8 @@ dependencies {
     implementation(composeBom)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material3.fullsize)
     implementation(libs.androidx.compose.ui.tooling.preview)
 
     // Splash Screen

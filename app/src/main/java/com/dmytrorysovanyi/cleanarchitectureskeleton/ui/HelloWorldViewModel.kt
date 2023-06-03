@@ -24,7 +24,7 @@ class HelloWorldViewModel @Inject constructor(
 ) : ViewModel() {
 
     var state by mutableStateOf(
-        HelloWorldState(isRefreshing = true, emptyList())
+        HelloWorldState(isRefreshing = true, emptyList()),
     )
 
     init {
