@@ -10,10 +10,19 @@ buildscript {
 }
 
 plugins {
-    id("com.google.dagger.hilt.android") version "2.44.2" apply false
-    id("androidx.benchmark") version "1.1.1" apply false
-    id("com.android.test") version "8.0.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.8.0" apply false
-    id("com.android.library") version "8.0.2" apply false
-    id("org.jetbrains.kotlin.jvm") version "1.8.0" apply false
+    alias(libs.plugins.android.benchmark) apply false
+    alias(libs.plugins.android.test) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.hilt.android) apply false
+    alias(libs.plugins.ksp) apply false
+}
+
+subprojects {
+    afterEvaluate {
+        apply(from = "$rootDir/gradle/scripts/ktlint.gradle.kts")
+    }
 }

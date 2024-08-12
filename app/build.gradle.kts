@@ -1,12 +1,11 @@
 @file:Suppress("UnstableApiUsage")
 
-apply(from = "ktlint.gradle.kts")
-
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
-    kotlin("kapt")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -68,11 +67,6 @@ android {
     namespace = "com.dmytrorysovanyi.cleanarchitectureskeleton"
 }
 
-// Added as suggested in Hilt documentation at https://dagger.dev/hilt/gradle-setup
-kapt {
-    correctErrorTypes = true
-}
-
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
@@ -111,7 +105,7 @@ dependencies {
 
     // Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // Tests
     androidTestImplementation(composeBom)
@@ -126,9 +120,9 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
 
     androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.android.testing)
+    kspAndroidTest(libs.hilt.android.testing)
     testImplementation(libs.hilt.android.testing)
-    kaptTest(libs.hilt.android.testing)
+    kspTest(libs.hilt.android.testing)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
@@ -136,4 +130,8 @@ dependencies {
     // Robolectric dependencies
     testImplementation(libs.androidx.compose.ui.test.junit4)
     testImplementation(libs.robolectric)
+}
+
+tasks.named("preBuild") {
+    dependsOn("ktlintFormat")
 }
